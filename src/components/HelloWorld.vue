@@ -50,27 +50,46 @@ export default {
   },
   methods: {
     storeTodo() {
-      if (this.todo !== "") {
-        if (this.isEditing) {
-          this.todos[this.selectedTodo] = this.todo;
-          this.isEditing = false;
-          this.todo = [];
-        } else {
-          this.todos.push(this.todo);
-          this.todo = [];
-        }
-      }
+      this.todos.push(this.todo);
+      this.todo = [];
     },
-    removeTodo(index) {
-      this.todos.splice(index, 1);
-    },
-    editTodo(index) {
+
+     editTodo(index) {
       this.isEditing = true;
       this.todo.name = this.todos[index].name;
       this.todo.email = this.todos[index].email;
       this.selectedTodo = index;
     },
+       removeTodo(index) {
+        this.todos.splice(index, 1);
+    },
+ 
   },
+  // methods: {
+  //   storeTodo() {
+  //     if (this.todo !== "") {
+  //       if (this.isEditing) {
+  //         this.todos[this.selectedTodo] = this.todo;
+  //         this.isEditing = false;
+  //         this.todo = [];
+  //       } else {
+  //         this.todos.push(this.todo);
+  //         this.todo = [];
+  //       }
+  //     }
+  //   },
+  //   removeTodo(index) {
+  //     this.todos.splice(index, 1);
+  //   },
+  //   editTodo(index) {
+  //     this.isEditing = true;
+  //     this.todo.name = this.todos[index].name;
+  //     this.todo.email = this.todos[index].email;
+  //     this.selectedTodo = index;
+  //   },
+  // },
+
+  
 };
 </script>
 
